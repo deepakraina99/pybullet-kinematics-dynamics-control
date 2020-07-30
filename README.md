@@ -42,5 +42,5 @@ robot.doInverseDynamics(thi, thf)
 ![ur5](images/comp-tor-ctrl-ur5.gif "ur5")  
 
 ### Impedence Control
-![ur5](images/imp-ctrl-ur5-2.gif "ur5")  
+![ur5](images/imp-ctrl-ur5-3.gif "ur5")  
 
