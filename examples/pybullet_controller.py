@@ -9,7 +9,7 @@
 # Input:
 # 1. robot_type: specify urdf file initials eg. if urdf file name is 'ur5.urdf', specify 'ur5'
 # 2. controllable_joints: joint indices of controllable joints. If not specified, by default all joints indices except first joint (first joint is fixed joint between robot stand and base) 
-# 3. end-eff_index: specify the joint indices for end-effector link. If not specifies, by default the last controllable_joints is considered as end-effector joint
+# 3. end-eff_index: specify the joint indices for end-effector link. If not specified, by default the last controllable_joints is considered as end-effector joint
 # 4. time_Step: time step for simulation
 
 import pybullet as p
@@ -135,13 +135,29 @@ class RobotController:
         return joint_vel
 
     #function to do joint velcoity control
-    def JointVelocityControl(self, joint_velocities, max_force=200):
+    def JointVelocityControl(self, joint_velocities, sim_time=2, max_force=200):
         print('Joint velocity controller')
-        p.setJointMotorControlArray(self.robot_id,
-                                    self.controllable_joints,
-                                    p.VELOCITY_CONTROL,
-                                    targetVelocities=joint_velocities,
-                                    forces = [max_force] * (len(self.controllable_joints)))
+        t=0
+        while t<sim_time:
+            p.setJointMotorControlArray(self.robot_id,
+                                        self.controllable_joints,
+                                        p.VELOCITY_CONTROL,
+                                        targetVelocities=joint_velocities,
+                                        forces = [max_force] * (len(self.controllable_joints)))
+            p.stepSimulation()
+            time.sleep(self.time_step)
+            t += self.time_step
+
+    #function to do joint velcoity control
+    def endEffectorVelocityControl(self, end_eff_vel, sim_time=2, max_forc=200):
+        print('End-effector velocity controller')
+        t=0
+        while t<sim_time:
+            joint_velocities = self.solveInverseVelocityKinematics(end_eff_vel)
+            self.JointVelocityControl(joint_velocities)
+            p.stepSimulation()
+            time.sleep(self.time_step)
+            t += self.time_step
 
     # Function to define GUI sliders (name of the parameter,range,initial value)
     def TaskSpaceGUIcontrol(self, goal, max_limit = 3.14, min_limit = -3.14):
