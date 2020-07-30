@@ -29,6 +29,10 @@ robot.doInverseDynamics(thi, thf)
 ### Tested on various robotic systems
 1-link, 2-link, 3-link robots with rotary joints, Universal Robots UR5
 
+### Joint and task space velocity control
+![ur5-ee](images/ee-vel-ctrl.gif "ur5-ee") 
+![ur5-joint](images/joint-vel-ctrl.gif "ur5-joint") 
+
 ### Free-fall under gravity simulation
 ![1-link](images/free-fall-1link.gif "1-link")  
 ![2-link](images/free-fall-2link.gif "2-link") 
