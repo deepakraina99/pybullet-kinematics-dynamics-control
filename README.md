@@ -1,5 +1,5 @@
 # Kinematics, dynamics and control of robotic systems in pyBullet
-This repository will help in kinematic and dynamic analysis of robotic systems. Some of the examples for solving forward and inverse position and velocity kinematics, forward and inverse dynamics simulations have been kept in the examples folder. User can take their help to simulate different robotic systems. In addition, it has capability to incorporate any control algorithm and trajectory planner with utmost ease. Computed torque control and impedence control has been implemented as an example.
+This repository will help in kinematic and dynamic analysis of robotic systems. Some of the examples for solving forward and inverse position and velocity kinematics, forward and inverse dynamics simulations have been kept in the [examples](https://github.com/deepakraina99/pybullet-kinematics-dynamics-control/tree/master/examples) folder. User can take their help to simulate different robotic systems. In addition, it has capability to incorporate any control algorithm and trajectory planner with utmost ease. Computed torque control and impedence control has been implemented as an example.
 
 ## How to run the code ?
 To make the program easy to use, ```RobotController``` class has been written to perform all kind of simulations. The class has folllowing inputs:
@@ -42,5 +42,6 @@ robot.doInverseDynamics(thi, thf)
 ![ur5](images/comp-tor-ctrl-ur5.gif "ur5")  
 
 ### Impedence Control
-![ur5](images/imp-ctrl-ur5-2.gif "ur5")  
+![ur5](images/imp-ctrl-ur5-3.gif "ur5")  
 
+The details regarding the various control techniques and their implementation in pybullet is availabe in [appendix](https://github.com/deepakraina99/pybullet-kinematics-dynamics-control/tree/master/docs)
