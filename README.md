@@ -48,4 +48,4 @@ robot.doInverseDynamics(thi, thf)
 ### Impedence Control
 ![ur5](images/imp-ctrl-ur5-3.gif "ur5")  
 
-The details regarding the various control techniques and their implementation in pybullet is availabe in [appendix](https://github.com/deepakraina99/pybullet-kinematics-dynamics-control/tree/master/docs)
+The details regarding the various control techniques and their implementation in pybullet is available in [appendix](https://github.com/deepakraina99/pybullet-kinematics-dynamics-control/tree/master/docs)
